@@ -24,16 +24,3 @@
 
 #define repeat(iterations)                                                     \
   for (int iterator = 0; iterator < iterations; iterator++)
-
-/*
-vex::brain Brain;
-vex::controller Controller1 = vex::controller();
-vex::motor MotorDriveLeft = vex::motor (vex::PORT1, vex::gearSetting::ratio18_1, false);
-vex::motor MotorDriveRight = vex::motor (vex::PORT10, vex::gearSetting::ratio18_1, true);
-vex::motor LiftMotor1 = vex::motor (vex::PORT12, vex::gearSetting::ratio18_1, false);
-vex::motor LiftMotor2 = vex::motor (vex::PORT8, vex::gearSetting::ratio18_1, true);
-vex::motor MidMotor = vex::motor (vex::PORT3, vex::gearSetting::ratio18_1, false);
-vex::motor IntakeMotor1 = vex::motor (vex::PORT2, vex::gearSetting::ratio18_1, false);
-vex::motor IntakeMotor2 = vex::motor (vex::PORT7, vex::gearSetting::ratio18_1, true);
-*/
-    

@@ -33,55 +33,45 @@ int main() {
       break;
     }
   }
-  int autoCount = 0;
   MotorDriveLeft.spin(forward, 6, volt);
   MotorDriveRight.spin(forward, 6, volt);
-  while(autoCount <= 25){//move forward a little
+  while(MotorDriveLeft.position(degrees)<=1080){//move forward a little
     MotorDriveLeft.spin(forward, 6, volt);
     MotorDriveRight.spin(forward, 6, volt);
-    autoCount++;
-  }
+  }MotorDriveLeft.resetRotation();
   IntakeMotor1.spin(forward, 6, volt);
   IntakeMotor2.spin(forward, 6, volt);
-  autoCount = 0;
-  while(autoCount <= 500){//go until a certain distance is met
+  while(MotorDriveLeft.position(degrees)<=3600){//go until a certain distance is met
     MotorDriveLeft.spin(forward, 6, volt);
     MotorDriveRight.spin(forward, 6, volt);
-    IntakeMotor1.spin(forward, 6, volt);
-    IntakeMotor2.spin(forward, 6, volt);
-    autoCount++;
-  }
+    IntakeMotor1.spin(forward, 12, volt);
+    IntakeMotor2.spin(forward, 12, volt);
+  }MotorDriveLeft.resetRotation();
   turnRight(65);//turn right x degrees
-  autoCount = 0;
-  while(autoCount <= 250){//move forward
+  while(MotorDriveLeft.position(degrees)<=1800){//move forward
     MotorDriveLeft.spin(forward, 6, volt);
     MotorDriveRight.spin(forward, 6, volt);
-  }
-  autoCount = 0;
+  }MotorDriveLeft.resetRotation();
   MidMotor.spin(forward,6, volt);
-  while(autoCount <= 25){//lift the slife
+  while(MidMotor.position(degrees)<=1440){//lift the slide
     MidMotor.spin(forward, 3, volt);
-  }autoCount = 0;
+  }MidMotor.resetRotation();
   MidMotor.spin(reverse,6, volt);
-  while(autoCount <= 25){//lower the slide again
+  while(MidMotor.position(degrees)<=1440){//lower the slide again
     MidMotor.spin(reverse, 3, volt);
-  }
+  }MidMotor.resetRotation();
 }
 
-void turnRight(double degrees){
-  int autoCount = 0;
-  while(autoCount <= degrees/5){//5 is just a guess
+void turnRight(double dabbers){
+  while(MotorDriveLeft.position(degrees)<=dabbers){//5 is just a guess
     MotorDriveLeft.spin(forward, 6, volt);
     MotorDriveRight.spin(reverse, 6, volt);
-    autoCount++;
-  }
+  }MotorDriveLeft.resetRotation();
 }
 
-void turnLeft(double degrees){
-  int autoCount = 0;
-  while(autoCount <= degrees/5){//5 is just a guess
+void turnLeft(double dabbers){
+  while(MotorDriveLeft.position(degrees)<=dabbers){//5 is just a guess
     MotorDriveLeft.spin(reverse, 6, volt);
     MotorDriveRight.spin(forward, 6, volt);
-    autoCount++;
-  }
+  }MotorDriveRight.resetRotation();
 }
